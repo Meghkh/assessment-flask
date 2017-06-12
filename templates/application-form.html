@@ -36,16 +36,16 @@
         <div class="col-xs-6">
           <form action="{{ url_for('display_applicaton_form_response') }}" method='POST'>
             First name:<br>
-            <input class="yellowed" type="text" name="firstname"><br>
+            <input class="yellowed" type="text" name="firstname" required><br>
             Last name:<br>
-            <input class="yellowed" type="text" name="lastname" id="lastname"><br>
+            <input class="yellowed" type="text" name="lastname" id="lastname" required><br>
             Salary Requirement:<br>
-            <input class="yellowed" type="number" step="0.01" name="salaryreq"><br>
+            <input class="yellowed" type="number" step="0.01" name="salaryreq" required><br>
             <p>Job you are applying for:</p>
             <select name="chosen_job">
-                <option value="Software Engineer">Software Engineer</option>
-                <option value="QA Engineer">QA Engineer</option>
-                <option value="Product Manager">Product Manager</option>
+                {% for job in job_selection %}
+                  <option value="{{ job }}">{{ job }}</option>
+                {% endfor %}
             </select><br><br>
             <!-- Submit Button -->
             <input class="yellowed" type="submit" value="Submit">

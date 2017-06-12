@@ -10,8 +10,6 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
-JOB_SELECTIONS = ["Software Engineer", "QA Engineer", "Product Manager"]
-
 
 # YOUR ROUTES GO HERE
 @app.route('/')
@@ -27,7 +25,8 @@ def start_here():
 def display_application_form():
     """Show the application form."""
 
-    return render_template('application-form.html')
+    # https://realpython.com/blog/python/primer-on-jinja-templating/
+    return render_template('application-form.html', job_selection=["Software Engineer", "QA Engineer", "Product Manager"])
 
 
 @app.route('/application-success', methods=['POST'])
@@ -37,6 +36,7 @@ def display_applicaton_form_response():
     firstname = request.form.get("firstname")
     lastname = request.form.get("lastname")
     salaryreq = request.form.get("salaryreq")
+    # gets value from select, not name
     chosen_job = request.form.get("chosen_job")
 
     return render_template('application-response.html',
