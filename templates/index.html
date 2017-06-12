@@ -3,17 +3,28 @@
   <head>
   <!-- http://flask.pocoo.org/docs/0.12/patterns/templateinheritance/ -->
     {% extends "base.html" %}
-    {% block title %}Application Form{% endblock %}
+    {% block title %}Welcome, Jobseeker!{% endblock %}
     {% block head %}
     {% endblock %}
   </head>
   <body>
     {% block content %}
       <div class="container">
-      <!-- include link to application form -->
-        <h1>Decorate home page.</h1>
-        <!-- https://stackoverflow.com/questions/27539309/how-do-i-create-a-link-to-another-html-page -->
-        <a href="{{ url_for('display_application_form') }}">Application Form</a>
+        <div class="row">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-offset-4">
+            <h1>Welcome, Jobseeker!</h1>
+          </div>
+          <div class="col-xs-6"></div>
+        </div>
+        <!-- Jinja/html solution for linking other directory files - https://stackoverflow.com/questions/27539309/how-do-i-create-a-link-to-another-html-page -->
+      <div class="row" align="middle">
+        <div class="col-xs-6">
+          <img src="https://gdcf-0916001bcltd.netdna-ssl.com/wp-content/uploads/2016/05/job-hunting-digital-age.jpg?x18098" alt="" style="width:304px;height:228px;">
+        </div>
+        <div class="col-xs-offset-6" style="width:304px;height:228px;border:solid;">
+          <a href="{{ url_for('display_application_form') }}">Application Form</a>
+        </div>
       </div>
     {% endblock %}
   </body>
