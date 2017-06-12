@@ -1,1 +1,17 @@
-/* Your styles can go here. */
+/* Your CSS goes here */
+
+.yellowed {
+    background-color: yellow 
+}
+
+.instructiontext {
+    border: solid
+}
+
+#lastname {
+    font-weight: bold
+}
+
+h1 {
+    color: green;
+}

@@ -12,6 +12,26 @@ app.secret_key = "ABC"
 
 
 # YOUR ROUTES GO HERE
+@app.route('/')
+@app.route('/index')
+def start_here():
+    """Home page."""
+
+    return render_template('index.html')
+
+
+@app.route('/application-form')
+def display_application_form():
+    """Show the application form."""
+
+    return render_template('application-form.html')
+
+
+@app.route('/application-success')
+def display_applicaton_form_response():
+    """Displays the application form response."""
+
+    return render_template('application-response.html')
 
 
 if __name__ == "__main__":

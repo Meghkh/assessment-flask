@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    {% extends "index.html" %}
+    {% block title %}Application Form{% endblock %}
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+  {% block content %}
+    <div class="container">
+      <!-- Large heading -->
+      <div class="row" align="middle">
+        <h3>Welcome!</h3>
+      </div>
+      <!-- Explanatory Text -->
+      <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+          <section class="instructiontext">
+            <p align="middle">Please fill in the applicaton form with:</p>
+              <ul>
+                <li>your first name</li>
+                <li>your last name</li>
+                <li>your salary requirements</li>
+                <li>job you are applying for</li>
+              </ul>
+          </section><br>
+        </div>
+        <div class="col-xs-3"></div>
+      </div>
+
+      <!-- Form -->
+      <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+          <form action="/application-success" method="post">
+            First name:<br>
+            <input class="yellowed" type="text" name="firstname"><br>
+            Last name:<br>
+            <input class="yellowed" type="text" name="lastname" id="lastname"><br>
+            Salary Requirement:<br>
+            <input class="yellowed" type="number" name="salaryreq"><br>
+            <p>Job you are applying for:</p>
+            <select>
+              <option value="software">Software Engineer</option>
+              <option value="qa">QA Engineer</option>
+              <option value="product">Product Manager</option>
+            </select><br><br>
+            <!-- Submit Button -->
+            <input class="yellowed" type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="col-xs-3"></div>
+      </div>
+    </div>
+  {% endblock %}
+
+</body>
+</html>
