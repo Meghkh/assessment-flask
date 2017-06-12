@@ -10,9 +10,12 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
+JOB_SELECTIONS = ["Software Engineer", "QA Engineer", "Product Manager"]
+
 
 # YOUR ROUTES GO HERE
 @app.route('/')
+@app.route('/base')
 @app.route('/index')
 def start_here():
     """Home page."""
@@ -27,11 +30,20 @@ def display_application_form():
     return render_template('application-form.html')
 
 
-@app.route('/application-success')
+@app.route('/application-success', methods=['POST'])
 def display_applicaton_form_response():
     """Displays the application form response."""
 
-    return render_template('application-response.html')
+    firstname = request.form.get("firstname")
+    lastname = request.form.get("lastname")
+    salaryreq = request.form.get("salaryreq")
+    chosen_job = request.form.get("chosen_job")
+
+    return render_template('application-response.html',
+                           firstname=firstname,
+                           lastname=lastname,
+                           salaryreq=float(salaryreq),
+                           chosen_job=chosen_job)
 
 
 if __name__ == "__main__":

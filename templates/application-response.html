@@ -4,8 +4,9 @@
     <title>Application Response</title>
 </head>
 <body>
-
-<!-- fill this in -->
+    <!-- currency formatting: https://stackoverflow.com/questions/22641074/html5-number-input-always-show-2-decimal-places -->
+    <p>Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ chosen_job }}. Your
+minimum salary requirement is ${{ "{:,.2f}".format(salaryreq) }}.</p>
 
 </body>
 </html>
